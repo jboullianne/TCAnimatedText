@@ -18,7 +18,7 @@ Written for [TrailingClosure.com](https://trailingclosure.com/).
 AnimatedText($input, charDuration: 0.07) { text in
     text
         .font(.largeTitle)
-        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+        .fontWeight(.bold)
         .foregroundColor(.green)
 }
 ```
