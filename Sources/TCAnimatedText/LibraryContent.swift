@@ -7,7 +7,7 @@ public struct LibraryContent: LibraryContentProvider {
     @State var tmp: String = ""
     
     @LibraryContentBuilder
-    var views: [LibraryItem] {
+    public var views: [LibraryItem] {
         LibraryItem(
             AnimatedText($tmp, charDuration: 0.2) { text in
                 text

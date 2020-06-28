@@ -26,7 +26,7 @@ public struct AnimatedText: View {
         
     }
     
-    var body: some View {
+    public var body: some View {
         HStack(alignment: .center, spacing: 0) {
             ForEach(Array(string.enumerated()), id: \.0) { (n, ch) in
                 self.textModifier(Text(String(ch)))
