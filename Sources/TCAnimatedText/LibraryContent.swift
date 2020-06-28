@@ -2,7 +2,7 @@
 import SwiftUI
 
 @available (iOS 14.0, macOS 10.16, *)
-struct LibraryContent: LibraryContentProvider {
+public struct LibraryContent: LibraryContentProvider {
     
     @State var tmp: String = ""
     

@@ -8,7 +8,7 @@
 import SwiftUI
 
 @available (iOS 14.0, macOS 10.16, *)
-struct AnimatedText: View {
+public struct AnimatedText: View {
     
     var charDuration: Double
     @Binding var input: String
@@ -17,7 +17,7 @@ struct AnimatedText: View {
     @State var nextValue: String?
     var textModifier: (Text)->(Text)
     
-    init(_ input: Binding<String>, charDuration: Double, modifier: @escaping (Text)->(Text)) {
+    public init(_ input: Binding<String>, charDuration: Double, modifier: @escaping (Text)->(Text)) {
         self._input = input
         self._string = State(initialValue: input.wrappedValue)
         self._isUpdating = State(initialValue: false)
@@ -163,7 +163,7 @@ struct AnimatedText: View {
     }
 }
 
-extension String {
+public extension String {
     subscript(i: Int) -> String {
         return String(self[index(startIndex, offsetBy: i)])
     }
