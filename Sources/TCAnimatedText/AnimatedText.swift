@@ -27,12 +27,15 @@ public struct AnimatedText: View {
     }
     
     public var body: some View {
-        HStack(alignment: .center, spacing: 0) {
-            ForEach(Array(string.enumerated()), id: \.0) { (n, ch) in
-                self.textModifier(Text(String(ch)))
-                
-            }
-        }.onChange(of: input) { newValue in
+        textView
+        
+//        HStack(alignment: .center, spacing: 0) {
+//            ForEach(Array(string.enumerated()), id: \.0) { (n, ch) in
+//                self.textModifier(Text(String(ch)))
+//
+//            }
+//        }
+        .onChange(of: input) { newValue in
             if self.string != newValue && !self.isUpdating{
                 self.nextValue = newValue
                 self.isUpdating = true
@@ -45,6 +48,15 @@ public struct AnimatedText: View {
                 animateStringChange(newValue: newValue)
             }
         }
+    }
+    
+    var textView: Text {
+        let text = string
+            .enumerated()
+            .map { _, ch in Text(String(ch)) }
+            .reduce(Text(""), +)
+        
+        return textModifier(text)
     }
     
     func animateStringChange(newValue: String) {
